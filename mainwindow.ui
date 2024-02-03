@@ -96,7 +96,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="a_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -121,7 +121,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
              <item>
-              <widget class="QLabel" name="label_2">
+              <widget class="QLabel" name="b_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -150,7 +150,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_6">
              <item>
-              <widget class="QLabel" name="label_3">
+              <widget class="QLabel" name="c_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -175,7 +175,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_7">
              <item>
-              <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="d_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -204,7 +204,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_12">
              <item>
-              <widget class="QLabel" name="label_7">
+              <widget class="QLabel" name="fi_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -229,7 +229,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_19">
              <item>
-              <widget class="QLabel" name="label_11">
+              <widget class="QLabel" name="f_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -258,7 +258,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_10">
              <item>
-              <widget class="QLabel" name="label_5">
+              <widget class="QLabel" name="minx_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -283,7 +283,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_11">
              <item>
-              <widget class="QLabel" name="label_6">
+              <widget class="QLabel" name="maxx_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -312,7 +312,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_16">
              <item>
-              <widget class="QLabel" name="label_9">
+              <widget class="QLabel" name="miny_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -337,7 +337,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_17">
              <item>
-              <widget class="QLabel" name="label_10">
+              <widget class="QLabel" name="maxy_label">
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
@@ -364,7 +364,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_13">
            <item>
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="rozdzielczosc_label">
              <property name="font">
               <font>
                <pointsize>11</pointsize>
