@@ -105,9 +105,9 @@ void MainWindow::sinusoidalna(){
 }
 
 void MainWindow::logarytmiczna(){
-    if(B==1)
+    if(B==1 && B<=0)
     {
-        QMessageBox::information(this,"B","Z własności logartymów wartość B musi być różne od 1");
+        QMessageBox::information(this,"B","Z własności logartymów wartość B musi być różne od 1, i większe od 0");
     }
     double Xlength=maxX;
     int points=Xlength*rozdzielczosc;
