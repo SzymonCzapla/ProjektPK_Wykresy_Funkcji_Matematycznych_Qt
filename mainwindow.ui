@@ -14,6 +14,9 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(56,56,56);</string>
+   </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
@@ -64,29 +67,34 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="layoutDirection">
             <enum>Qt::LeftToRight</enum>
            </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+           </property>
            <item>
             <property name="text">
-             <string>liniowa</string>
+             <string>Liniowa</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>sinusoidalna</string>
+             <string>Sinusoidalna</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>logarytmiczna</string>
+             <string>Logarytmiczna</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>pierwiastkowa</string>
+             <string>Pierwiastkowa</string>
             </property>
            </item>
           </widget>
@@ -100,7 +108,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>A</string>
@@ -112,7 +124,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -125,7 +142,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>B</string>
@@ -137,7 +158,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -154,7 +180,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>C</string>
@@ -166,7 +196,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -179,7 +214,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>D</string>
@@ -191,7 +230,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -208,7 +252,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>fi</string>
@@ -220,7 +268,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -233,7 +286,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>f</string>
@@ -245,7 +302,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -262,7 +324,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>minX</string>
@@ -274,7 +340,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -287,7 +358,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>maxX</string>
@@ -299,7 +374,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -316,7 +396,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>minY</string>
@@ -328,7 +412,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -341,7 +430,11 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>maxY</string>
@@ -353,7 +446,12 @@
                <property name="font">
                 <font>
                  <pointsize>11</pointsize>
+                 <bold>true</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                </property>
               </widget>
              </item>
@@ -368,7 +466,11 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);</string>
              </property>
              <property name="text">
               <string>Rozdzielczość</string>
@@ -380,7 +482,12 @@
              <property name="font">
               <font>
                <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
              </property>
             </widget>
            </item>
@@ -391,7 +498,12 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <bold>true</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
            </property>
            <property name="text">
             <string>Rysuj wykres</string>

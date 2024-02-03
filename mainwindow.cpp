@@ -158,16 +158,16 @@ void MainWindow::rysuj_wykres(){
 
 void MainWindow::jaka_funkcja(){
     MainWindow::getdane();
-    if(typ_funkcji=="liniowa"){
+    if(typ_funkcji=="Liniowa"){
         MainWindow::liniowa();
     }
-    else if(typ_funkcji=="sinusoidalna"){
+    else if(typ_funkcji=="Sinusoidalna"){
         MainWindow::sinusoidalna();
     }
-    else if(typ_funkcji=="logarytmiczna"){
+    else if(typ_funkcji=="Logarytmiczna"){
         MainWindow::logarytmiczna();
     }
-    else if(typ_funkcji=="pierwiastkowa"){
+    else if(typ_funkcji=="Pierwiastkowa"){
         MainWindow::pierwiastkowa();
     }
     MainWindow::rysuj_wykres();
@@ -180,38 +180,61 @@ void MainWindow::on_rysujwykres_clicked()
 }
 void MainWindow::on_typ_funkcji_currentTextChanged(const QString &typ_funkcji)
 {
-    if(typ_funkcji=="liniowa"){
+    if(typ_funkcji=="Liniowa"){
+        ui->A->show();
+        ui->a_label->show();
+        ui->B->show();
+        ui->b_label->show();
         ui->C->hide();
-        ui->D->hide();
-        ui->f->hide();
-        ui->fi->hide();
         ui->c_label->hide();
+        ui->D->hide();
         ui->d_label->hide();
-        ui->fi_label->hide();
+        ui->f->hide();
         ui->f_label->hide();
-
+        ui->fi->hide();
+        ui->fi_label->hide();
     }
-    else if(typ_funkcji=="sinusoidalna"){
+    else if(typ_funkcji=="Sinusoidalna"){
+        ui->A->show();
+        ui->a_label->show();
+        ui->B->show();
+        ui->b_label->show();
         ui->f->show();
+        ui->f_label->show();
         ui->fi->show();
         ui->fi_label->show();
-        ui->f_label->show();
+        ui->C->hide();
+        ui->c_label->hide();
+        ui->D->hide();
+        ui->d_label->hide();
     }
-    else if(typ_funkcji=="logarytmiczna"){
-        ui->f->hide();
-        ui->fi->hide();
-        ui->fi_label->hide();
-        ui->f_label->hide();
+    else if(typ_funkcji=="Logarytmiczna"){
+        ui->A->show();
+        ui->a_label->show();
+        ui->B->show();
+        ui->b_label->show();
         ui->C->show();
         ui->c_label->show();
+        ui->D->hide();
+        ui->d_label->hide();
+        ui->f->hide();
+        ui->f_label->hide();
+        ui->fi->hide();
+        ui->fi_label->hide();            
     }
-    else if(typ_funkcji=="pierwiastkowa"){
+    else if(typ_funkcji=="Pierwiastkowa"){
+        ui->A->show();
+        ui->a_label->show();
+        ui->D->show();
+        ui->d_label->show();
         ui->B->hide();
         ui->b_label->hide();
         ui->C->hide();
         ui->c_label->hide();
-        ui->D->show();
-        ui->d_label->show();
+        ui->f->hide();
+        ui->f_label->hide();
+        ui->fi->hide();
+        ui->fi_label->hide();
     }
 }
 
