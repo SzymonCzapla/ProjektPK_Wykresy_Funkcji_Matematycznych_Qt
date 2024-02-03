@@ -6,6 +6,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->A->setSingleStep(0.1);
+    ui->B->setSingleStep(0.1);
+    ui->C->setSingleStep(0.1);
+    ui->D->setSingleStep(0.1);
+    ui->fi->setSingleStep(0.1);
+    ui->f->setSingleStep(0.1);
+    ui->rozdzielczosc->setSingleStep(10);
     ui->A->setMinimum(-1000);
     ui->B->setMinimum(-1000);
     ui->C->setMinimum(-1000);
@@ -38,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->maxX->setValue(10);
     ui->minY->setValue(-10);
     ui->maxY->setValue(10);
+    ui->rozdzielczosc->setValue(10);
     MainWindow::liniowa();
     MainWindow::rysuj_wykres();
 }
@@ -156,4 +164,6 @@ void MainWindow::on_rysujwykres_clicked()
 {
     MainWindow::jaka_funkcja();
 }
+
+
 
