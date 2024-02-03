@@ -29,6 +29,7 @@ public:
 
 private slots:
     void on_rysujwykres_clicked();
+    void on_typ_funkcji_currentTextChanged(const QString &typ_funkcji);
 
 private:
     Ui::MainWindow *ui;
