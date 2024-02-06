@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "qcustomplot.h"
 #include <QMessageBox>
+#include "funkcje.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,17 +17,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QString typ_funkcji;
-    double A=1, B=1, C=1, D=1, fi=1, f=1, minX=-10, maxX=10, minY=-10, maxY=10;
-    QVector<double> x, y;
     void jaka_funkcja();
     int rozdzielczosc=10;
-    void getdane();
     void skala();
-    void liniowa();
-    void sinusoidalna();
-    void logarytmiczna();
-    void pierwiastkowa();
     void rysuj_wykres();
+    void getdane();
+    Liniowa *WykresLiniowa;
+    Sinusoidalna *WykresSinusoidalna;
+    Pierwiastkowa *WykresPierwiastkowa;
+    Logarytmiczna *WykresLogarytmiczna;
 
 private slots:
     void on_rysujwykres_clicked();
@@ -34,5 +33,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    double A=0, B=0,C=0,D=0,f=0,fi=0;
+    int minX=0,maxX=0,minY=0, maxY=0;
+    QVector<double>x,y;
 };
 #endif // MAINWINDOW_H

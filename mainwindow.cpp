@@ -55,8 +55,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->minY->setValue(-10);
     ui->maxY->setValue(10);
     ui->rozdzielczosc->setValue(10);
-    MainWindow::liniowa();
-    MainWindow::rysuj_wykres();
+    qInfo()<<maxX;
+    WykresLiniowa->obliczFunkcjeLiniowa();
+    //MainWindow::rysuj_wykres();
 }
 
 MainWindow::~MainWindow()
@@ -73,67 +74,16 @@ void MainWindow::getdane(){
     f=ui->f->value();
     rozdzielczosc=ui->rozdzielczosc->value();
     minX=ui->minX->value();
+    qInfo()<<"PrzedmaxX:"<<maxX;
     maxX=ui->maxX->value();
+    qInfo()<<"POmaxX:"<<maxX;
     minY=ui->minY->value();
     maxY=ui->maxY->value();
     typ_funkcji=ui->typ_funkcji->currentText();
 }
 
-void MainWindow::liniowa(){
-
-    double Xlength = maxX - minX;
-    int points = Xlength * rozdzielczosc;
-    x.resize(points);
-    y.resize(points);
-    for (int i = 0; i < points; ++i)
-    {
-        x[i] = Xlength * static_cast<double>(i) / (points - 1) + minX;
-        y[i] = A * x[i] + B;
-    }
-}
-
-void MainWindow::sinusoidalna(){
-    double Xlength=maxX-minX;
-    int points=Xlength*rozdzielczosc;
-    x.resize(points);
-    y.resize(points);
-    for (int i=0; i<points; ++i)
-    {
-        x[i] = Xlength * static_cast<double>(i) / (points - 1) + minX;
-        y[i] = A*sin(2.0*f*M_PI*x[i]+fi)+B;
-    }
-}
-
-void MainWindow::logarytmiczna(){
-    if(B==1 && B<=0)
-    {
-        QMessageBox::information(this,"B","Z własności logartymów wartość B musi być różne od 1, i większe od 0");
-    }
-    double Xlength=maxX;
-    int points=Xlength*rozdzielczosc;
-    x.resize(points);
-    y.resize(points);
-    for (int i=0; i<points; ++i)
-    {
-        x[i] = Xlength * static_cast<double>(i) / (points - 1);
-        y[i] = A * (log(x[i]) / log(B)) + C;
-    }
-}
-
-void MainWindow::pierwiastkowa(){
-    double Xlength=maxX-minX;
-    int points=Xlength*rozdzielczosc;
-    x.resize(points);
-    y.resize(points);
-    for (int i=0; i<points; ++i)
-    {
-        x[i] = Xlength * static_cast<double>(i) / (points - 1) + minX;
-        y[i] = A*sqrt(x[i])+B;
-    }
-}
 
 void MainWindow::rysuj_wykres(){
-    ui->graph->addGraph();
     ui->graph->graph(0)->setData(x, y);
     ui->graph->xAxis->setRange(minX, maxX);
     ui->graph->yAxis->setRange(minY, maxY);
@@ -159,16 +109,16 @@ void MainWindow::rysuj_wykres(){
 void MainWindow::jaka_funkcja(){
     MainWindow::getdane();
     if(typ_funkcji=="Liniowa"){
-        MainWindow::liniowa();
+        WykresLiniowa->Liniowa::obliczFunkcjeLiniowa();
     }
     else if(typ_funkcji=="Sinusoidalna"){
-        MainWindow::sinusoidalna();
+        WykresSinusoidalna->Sinusoidalna::obliczFunkcjeSinusoidalna();
     }
     else if(typ_funkcji=="Logarytmiczna"){
-        MainWindow::logarytmiczna();
+        WykresLogarytmiczna->Logarytmiczna::obliczFunkcjeLogarytmiczna();
     }
     else if(typ_funkcji=="Pierwiastkowa"){
-        MainWindow::pierwiastkowa();
+        WykresPierwiastkowa->Pierwiastkowa::obliczFunkcjePierwiastkowa();
     }
     MainWindow::rysuj_wykres();
     //qDebug()<<typ_funkcji; //jak chcesz cos sprawdzac czy dziala
