@@ -55,9 +55,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->minY->setValue(-10);
     ui->maxY->setValue(10);
     ui->rozdzielczosc->setValue(10);
-    qInfo()<<maxX;
-    WykresLiniowa->obliczFunkcjeLiniowa();
-    //MainWindow::rysuj_wykres();
+    getdane();
+    funkcja.liniowa();
+    rysuj_wykres();
 }
 
 MainWindow::~MainWindow()
@@ -65,28 +65,32 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+QString MainWindow::getTypFunkcji()
+{
+    return ui->typ_funkcji->currentText();
+}
+
 void MainWindow::getdane(){
-    A=ui->A->value();
-    B=ui->B->value();
-    C=ui->C->value();
-    D=ui->D->value();
-    fi=ui->fi->value();
-    f=ui->f->value();
-    rozdzielczosc=ui->rozdzielczosc->value();
-    minX=ui->minX->value();
-    qInfo()<<"PrzedmaxX:"<<maxX;
-    maxX=ui->maxX->value();
-    qInfo()<<"POmaxX:"<<maxX;
-    minY=ui->minY->value();
-    maxY=ui->maxY->value();
     typ_funkcji=ui->typ_funkcji->currentText();
+    funkcja.setA(ui->A->value());
+    funkcja.setB(ui->B->value());
+    funkcja.setC(ui->C->value());
+    funkcja.setD(ui->D->value());
+    funkcja.setF(ui->f->value());
+    funkcja.setFi(ui->fi->value());
+    funkcja.setRozdzielczosc(ui->rozdzielczosc->value());
+    funkcja.setMaxX(ui->maxX->value());
+    funkcja.setMaxY(ui->maxY->value());
+    funkcja.setMinX(ui->minX->value());
+    funkcja.setMinY(ui->minY->value());
 }
 
 
 void MainWindow::rysuj_wykres(){
-    ui->graph->graph(0)->setData(x, y);
-    ui->graph->xAxis->setRange(minX, maxX);
-    ui->graph->yAxis->setRange(minY, maxY);
+    ui->graph->addGraph();
+    ui->graph->graph(0)->setData(funkcja.getX(), funkcja.getY());
+    ui->graph->xAxis->setRange(ui->minX->value(), ui->maxX->value());
+    ui->graph->yAxis->setRange(ui->minY->value(), ui->maxY->value());
     //wyglad wykresu
     ui->graph->setBackground(QBrush(QColor(56,56,56)));
 
@@ -107,26 +111,26 @@ void MainWindow::rysuj_wykres(){
 }
 
 void MainWindow::jaka_funkcja(){
-    MainWindow::getdane();
+    getdane();
+    qInfo()<<typ_funkcji;
     if(typ_funkcji=="Liniowa"){
-        WykresLiniowa->Liniowa::obliczFunkcjeLiniowa();
+        funkcja.liniowa();
     }
     else if(typ_funkcji=="Sinusoidalna"){
-        WykresSinusoidalna->Sinusoidalna::obliczFunkcjeSinusoidalna();
+        funkcja.sinusoidalna();
     }
     else if(typ_funkcji=="Logarytmiczna"){
-        WykresLogarytmiczna->Logarytmiczna::obliczFunkcjeLogarytmiczna();
+        funkcja.logarytmiczna();
     }
     else if(typ_funkcji=="Pierwiastkowa"){
-        WykresPierwiastkowa->Pierwiastkowa::obliczFunkcjePierwiastkowa();
+        funkcja.pierwiastkowa();
     }
-    MainWindow::rysuj_wykres();
-    //qDebug()<<typ_funkcji; //jak chcesz cos sprawdzac czy dziala
+    rysuj_wykres();
 }
 
 void MainWindow::on_rysujwykres_clicked()
 {
-    MainWindow::jaka_funkcja();
+    jaka_funkcja();
 }
 void MainWindow::on_typ_funkcji_currentTextChanged(const QString &typ_funkcji)
 {
@@ -170,7 +174,7 @@ void MainWindow::on_typ_funkcji_currentTextChanged(const QString &typ_funkcji)
         ui->f->hide();
         ui->f_label->hide();
         ui->fi->hide();
-        ui->fi_label->hide();            
+        ui->fi_label->hide();
     }
     else if(typ_funkcji=="Pierwiastkowa"){
         ui->A->show();
@@ -187,5 +191,4 @@ void MainWindow::on_typ_funkcji_currentTextChanged(const QString &typ_funkcji)
         ui->fi_label->hide();
     }
 }
-
 

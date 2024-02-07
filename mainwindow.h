@@ -13,28 +13,22 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+
+private:
+    QString typ_funkcji;
+    Ui::MainWindow *ui;
+    Funkcje funkcja;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QString typ_funkcji;
-    void jaka_funkcja();
-    int rozdzielczosc=10;
-    void skala();
-    void rysuj_wykres();
-    void getdane();
-    Liniowa *WykresLiniowa;
-    Sinusoidalna *WykresSinusoidalna;
-    Pierwiastkowa *WykresPierwiastkowa;
-    Logarytmiczna *WykresLogarytmiczna;
+    QString getTypFunkcji();
 
 private slots:
     void on_rysujwykres_clicked();
     void on_typ_funkcji_currentTextChanged(const QString &typ_funkcji);
+    void rysuj_wykres();
+    void getdane();
+    void jaka_funkcja();
 
-private:
-    Ui::MainWindow *ui;
-    double A=0, B=0,C=0,D=0,f=0,fi=0;
-    int minX=0,maxX=0,minY=0, maxY=0;
-    QVector<double>x,y;
 };
 #endif // MAINWINDOW_H

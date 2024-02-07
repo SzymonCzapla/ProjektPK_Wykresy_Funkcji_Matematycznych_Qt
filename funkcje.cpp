@@ -1,138 +1,87 @@
 #include "funkcje.h"
+#include <QMessageBox>
 
-void Funkcje::setA(double a)
-{ this->A = a;}
-
-void Funkcje::setB(double b)
-{this->B = b;}
-
-void Funkcje::setMaxX(int ma_x)
-{this->maxX=ma_x;}
-
-void Funkcje::setMinX(int mi_x)
-{this->minX=mi_x;}
-
-void Funkcje::setMaxY(int ma_y)
-{this->maxY=ma_y;}
-
-void Funkcje::setMinY(int mi_y)
-{this->minY=mi_y;}
-
-void Funkcje::setRozdzielczosc(int Rozdzielczosc)
-{this->rozdzielczosc=Rozdzielczosc;};
-
-void Funkcje::setC(double c)
-{this->C=c;}
-
-void Funkcje::setD(double d)
-{this->D=d;}
-
-void Funkcje::setF(double f)
-{this->F=f;}
-
-void Funkcje::setFi(double fi)
-{this->Fi=fi;};
-
-double Funkcje::getA()
-{ return this->A;}
-
-double Funkcje::getF()
-{return this->F;};
-
-double Funkcje::getFi()
-{return this->Fi;};
-
-double Funkcje::getC()
-{return this->C;}
-
-double Funkcje::getD()
-{return this->D;}
-
-double Funkcje::getB()
-{ return this->B;}
-
-int Funkcje::getMaxX()
-{qInfo()<<"getMaxX"<<maxX;
-    return maxX;}
-
-int Funkcje::getMinX()
-{return this->minX;}
-
-int Funkcje::getMaxY()
-{return this->maxY;}
-
-int Funkcje::getMinY()
-{return this->minY;}
-
-int Funkcje::getRozdzielczosc()
-{return this->rozdzielczosc;};
-
-QVector<double>* Funkcje::getVectorX()
-{return &this->x;};
-
-QVector<double>* Funkcje::getVectorY()
-{return &this->y;};
+Funkcje::Funkcje() {};
 
 
-void Liniowa::obliczFunkcjeLiniowa()
-{
-    double Xlength = getMaxX() - Funkcje::getMinX();
-    /*int points = Xlength * Funkcje::getRozdzielczosc();
-    QVector<double>* wektorX = Funkcje::getVectorX();
-    QVector<double>* wektorY = Funkcje::getVectorY();
-    wektorX->resize(points);
-    wektorY->resize(points);
+void Funkcje::setMaxX(double XMax){m_maxX=XMax;}
+
+void Funkcje::setMaxY(double YMax){m_maxY=YMax;}
+
+void Funkcje::setMinX(double XMin){m_minX=XMin;}
+
+void Funkcje::setMinY(double YMin){m_minY=YMin;}
+
+void Funkcje::setA(double a){m_A=a;}
+void Funkcje::setB(double b){m_B=b;}
+void Funkcje::setC(double c){m_C=c;}
+void Funkcje::setD(double d){m_D=d;}
+void Funkcje::setF(double f){m_f=f;}
+void Funkcje::setFi(double fi){m_fi=fi;}
+void Funkcje::setRozdzielczosc(int rozdzielczosc){m_rozdzielczosc=rozdzielczosc;}
+
+
+QVector<double> Funkcje::getX()
+{return x;}
+
+QVector<double> Funkcje::getY()
+{return y;}
+
+
+void Funkcje::liniowa(){
+
+    double Xlength = m_maxX - m_minX;
+    int points = Xlength * m_rozdzielczosc;
+    x.resize(points);
+    y.resize(points);
     for (int i = 0; i < points; ++i)
     {
-        (*wektorX)[i] = Xlength * static_cast<double>(i) / (points - 1) + Funkcje::getMinX();
-        (*wektorY)[i] = Funkcje::getA() * (*wektorX)[i] + Funkcje::getB();
-    }*/
+        x[i] = Xlength * static_cast<double>(i) / (points - 1) + m_minX;
+        y[i] = m_A * x[i] + m_B;
+    }
 }
 
-void Logarytmiczna::obliczFunkcjeLogarytmiczna()
-{
-        double Xlength=Funkcje::getMaxX();
-        int points=Xlength*Funkcje::getRozdzielczosc();
-        QVector<double>* wektorX = Funkcje::getVectorX();
-        QVector<double>* wektorY = Funkcje::getVectorY();
-        wektorX->resize(points);
-        wektorY->resize(points);
+void Funkcje::sinusoidalna(){
+    double Xlength=m_maxX-m_minX;
+    int points=Xlength*m_rozdzielczosc;
+    x.resize(points);
+    y.resize(points);
+    for (int i=0; i<points; ++i)
+    {
+        x[i] = Xlength * static_cast<double>(i) / (points - 1) + m_minX;
+        y[i] = m_A*sin(2.0*m_f*m_PI*x[i]+m_fi)+m_B;
+    }
+}
+
+void Funkcje::logarytmiczna(){
+    if(m_B==1 || m_B<=0.0)
+    {
+        QMessageBox msg;
+        msg.setText("Z własności logartymów wartość B musi być większe od 0 i różne od 1");
+        msg.exec();
+        msg.deleteLater();
+    }
+    else{
+        double Xlength=m_maxX;
+        int points=Xlength*m_rozdzielczosc;
+        x.resize(points);
+        y.resize(points);
         for (int i=0; i<points; ++i)
         {
-            (*wektorX)[i] = Xlength *static_cast<double>(i) / (points - 1);
-            (*wektorY)[i] = Funkcje::getA() * (log((*wektorX)[i]) / log(Funkcje::getB())) + Funkcje::getC();
+            x[i] = Xlength * static_cast<double>(i) / (points - 1);
+            y[i] = m_A * (log(x[i]) / log(m_B)) + m_C;
         }
+    }
+}
 
-};
-
-void Sinusoidalna::obliczFunkcjeSinusoidalna()
-{
-    double Xlength=Funkcje::getMaxX() - Funkcje::getMinX();
-    int points=Xlength*Funkcje::getRozdzielczosc();
-    QVector<double>* wektorX = Funkcje::getVectorX();
-    QVector<double>* wektorY = Funkcje::getVectorY();
-    wektorX->resize(points);
-    wektorY->resize(points);
+void Funkcje::pierwiastkowa(){
+    double Xlength=m_maxX-m_minX;
+    int points=Xlength*m_rozdzielczosc;
+    x.resize(points);
+    y.resize(points);
     for (int i=0; i<points; ++i)
     {
-        (*wektorX)[i] = Xlength * static_cast<double>(i) / (points - 1) + Funkcje::getMinX();
-        (*wektorY)[i] = Funkcje::getA()*sin(2.0*Funkcje::getF()*M_PI*(*wektorX)[i]+Funkcje::getFi())+Funkcje::getB();
+        x[i] = Xlength * static_cast<double>(i) / (points - 1) + m_minX;
+        y[i] = m_A*sqrt(x[i])+m_B;
     }
-
-};
-
-void Pierwiastkowa::obliczFunkcjePierwiastkowa()
-{
-    double Xlength=Funkcje::getMaxX() - Funkcje::getMinX();;
-    int points=Xlength*Funkcje::getRozdzielczosc();
-    QVector<double>* wektorX = Funkcje::getVectorX();
-    QVector<double>* wektorY = Funkcje::getVectorY();
-    wektorX->resize(points);
-    wektorY->resize(points);
-    for (int i=0; i<points; ++i)
-    {
-        (*wektorX)[i] = Xlength * static_cast<double>(i) / (points - 1) + Funkcje::getMinX();
-        (*wektorY)[i] = Funkcje::getA()*sqrt((*wektorX)[i])+Funkcje::getB();
-    }
-
-};
+}
