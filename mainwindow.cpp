@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->d_label->hide();
     ui->fi_label->hide();
     ui->f_label->hide();
-
     ui->A->setSingleStep(0.1);
     ui->B->setSingleStep(0.1);
     ui->C->setSingleStep(0.1);
@@ -112,7 +111,6 @@ void MainWindow::rysuj_wykres(){
 
 void MainWindow::jaka_funkcja(){
     getdane();
-    qInfo()<<typ_funkcji;
     if(typ_funkcji=="Liniowa"){
         funkcja.liniowa();
     }
